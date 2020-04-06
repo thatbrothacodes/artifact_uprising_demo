@@ -1,4 +1,4 @@
-import Service from './';
+import { Service } from './';
 import { BillingAddress } from '../models';
 
 export default class BillingAddressService extends Service<BillingAddress> {

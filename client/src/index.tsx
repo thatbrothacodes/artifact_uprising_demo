@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-// import reducers from "./reducers";
+import reducers from "./reducers";
 
 declare global {
   interface Window {
@@ -20,18 +20,18 @@ axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// const store = createStore(
-//   reducers,
-//   {},
-//   reduxDevTools(applyMiddleware(thunk))
-// );
+const store = createStore(
+  reducers,
+  {},
+  reduxDevTools(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      {/* <Provider store={store}> */}
+      <Provider store={store}>
           <App />
-      {/* </Provider> */}
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
