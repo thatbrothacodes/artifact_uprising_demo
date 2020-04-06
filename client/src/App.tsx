@@ -16,6 +16,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) => ({
+  container: {
+    flex: 1,
+    padding: theme.spacing(3)
+  },
   links: {
     marginLeft: theme.spacing(8),
     flexGrow: 1,
@@ -25,9 +29,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-  },
-  paper: {
-    padding: theme.spacing(2)
   },
   root: {
     flexGrow: 1,
@@ -107,13 +108,12 @@ export default withRouter((props: RouteComponentProps) => {
         </Menu>
       </AppBar>
       <Grid
+        className={classes.container}
         container
         direction="column"
       >
         <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Router />
-          </Paper>
+          <Router />
         </Grid>
       </Grid>
     </>

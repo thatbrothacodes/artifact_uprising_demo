@@ -28,5 +28,3 @@ interface IProfileComponentProps {
     updateProfile: (profile: Profile) => void;
     profile: Profile;
 }
-
-
