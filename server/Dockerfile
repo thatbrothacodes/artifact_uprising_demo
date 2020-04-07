@@ -19,9 +19,10 @@ WORKDIR /server
 USER root
 
 # Install client dependencies and build client
+RUN npm i -g sequelize-cli
 RUN yarn
 
 # Expose Container Port
 EXPOSE 4000
 
-CMD ["yarn", "start"]
+RUN yarn start

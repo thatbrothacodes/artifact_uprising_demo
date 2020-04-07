@@ -20,11 +20,6 @@ export default (sequelize, types) => {
         price: {
             type: types.DECIMAL,
             allowNull: false
-        },
-        createDate: {
-            type: types.DATE,
-            defaultValue: types.NOW,
-            allowNull: false
         }
     },
     {

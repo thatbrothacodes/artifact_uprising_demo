@@ -17,14 +17,13 @@ export default (sequelize, types) => {
             type: types.DECIMAL,
             allowNull: false
         },
-        createDate: {
-            type: types.DATE,
-            defaultValue: types.NOW,
-            allowNull: false
+        createdAt: {
+            field: 'createDate',
+            type: types.DATE
         }
     },
     {
         freezeTableName: true, // Model tableName will be the same as the model name
-        timestamps: false
+        timestamps: true
     });
 }

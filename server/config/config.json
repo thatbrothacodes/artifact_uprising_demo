@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "API_QUEEN_AND_SLIM",
+    "password": "P@ssw0rd!",
+    "database": "QueenandSlim",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": "5000"
+  },
+  "test": {
+    "username": "API_QUEEN_AND_SLIM",
+    "password": "P@ssw0rd!",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "API_QUEEN_AND_SLIM",
+    "password": "P@ssw0rd!",
+    "database": "QueenandSlim",
+    "host": "postgres",
+    "dialect": "postgres"
+  }
+}

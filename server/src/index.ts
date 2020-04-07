@@ -8,6 +8,8 @@ const router = express.Router();
 const port: number = parseInt(process.env.PORT) || 4000;
 const environment: string = process.env.NODE_ENV || "development";
 
+console.log(process.env);
+
 // include error handling
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,9 +23,14 @@ app.use((req, res, next) => {
 
 app.use('/', controllers(router, db));
 
-db.sequelize.sync().then(() => {
-  app.listen(port, () => {
-    console.log("environment: " + environment);
-    console.log(`Example app listening on port ${port}`);
-  });
+// db.sequelize.sync().then(() => {
+//   app.listen(port, () => {
+//     console.log("environment: " + environment);
+//     console.log(`Example app listening on port ${port}`);
+//   });
+// });
+
+app.listen(port, () => {
+  console.log("environment: " + environment);
+  console.log(`Example app listening on port ${port}`);
 });

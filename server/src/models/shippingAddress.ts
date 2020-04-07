@@ -49,26 +49,17 @@ export default (sequelize, types) => {
             type: types.DATE,
             allowNull: false
         },
-        createDate: {
-            type: types.DATE,
-            defaultValue: types.NOW,
-            allowNull: false
+        createdAt: {
+            field: 'createDate',
+            type: types.DATE
         },
-        modifiedDate: {
-            type: types.DATE,
-            defaultValue: types.NOW,
-            allowNull: false
-        },
-        createdBy: {
-            type: types.STRING,
-            allowNull: false,
-        },
-        modifiedBy: {
-            type: types.STRING
+        updatedAt: {
+            field: 'modifiedDate',
+            type: types.DATE
         }
     },
     {
         freezeTableName: true, // Model tableName will be the same as the model name
-        timestamps: false
+        timestamps: true
     });
 }
