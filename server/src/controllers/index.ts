@@ -1,9 +1,9 @@
-import profileRouter from './profile';
+import userRouter from './user';
 import ordersRouter from './orders';
 
-export default (router) => {
-    router.use('/orders', ordersRouter());
-    router.use('/', profileRouter());
+export default (router, db) => {
+    router.use('/orders', ordersRouter(db));
+    router.use('/', userRouter(db));
     
     return router;
 };

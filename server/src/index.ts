@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import controllers from './controllers';
+import db from './models';
 
 const app = express();
 const router = express.Router();
@@ -18,9 +19,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', controllers(router));
+app.use('/', controllers(router, db));
 
-app.listen(port, () => {
+db.sequelize.sync().then(() => {
+  app.listen(port, () => {
     console.log("environment: " + environment);
-    console.log(`App listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
+  });
 });

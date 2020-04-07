@@ -1,11 +1,18 @@
 import express from 'express';
 
-export default () => {
+export default (db) => {
     const router = express.Router();
 
     router.get('/', async(req, res, next) => {
         try {
-            res.status(200).json([]);
+            db.User.findAll()
+                .then(result => res.status(200).json(result))
+                .catch(() => {
+                    res.status(500).json({
+                        error: 'Internal Sever Error'
+                    });
+                });
+            
         } catch(e) {
             res.status(500).json({
                 error: 'Internal Sever Error'

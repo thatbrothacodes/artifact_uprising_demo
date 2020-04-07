@@ -1,6 +1,6 @@
 import express from 'express';
 
-export default () => {
+export default (db) => {
     const router = express.Router();
 
     router.get('/', async(req, res, next) => {

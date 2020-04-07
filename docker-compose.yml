@@ -3,24 +3,32 @@ version: "3"
 services:
   postgres:
     container_name: demo-artifact-uprising-db
+    restart: always
     image: postgres:12.2-alpine
-    expose: 
-      - 5432
-  DEMO-ARTIFACT_UPRISING-SERVER:
-    build: ./server
-    container_name: demo-artifact-uprising-server
-    links:
-      - postgres
     environment:
-      - NODE_ENV=production
-    image: demo-artifact-uprising-server:0.1.0
+      POSTGRES_DB: QueenandSlim
+      POSTGRES_PASSWORD: P@ssw0rd!
     ports:
-      - "4000:4000"
-  DEMO-ARTIFACT_UPRISING-CLIENT:
-    build: ./client
-    container_name: demo-artifact-uprising-client
-    depends_on:
-      - DEMO-ARTIFACT_UPRISING-SERVER
-    image: demo-artifact-uprising-client:0.1.0
-    ports:
-      - "3000:3000"
+      - "5000:5432"
+    # expose: 
+    #   - 5432
+    volumes:
+      - ./server/init.sql:/docker-entrypoint-initdb.d/init.sql
+  # DEMO-ARTIFACT_UPRISING-SERVER:
+  #   build: ./server
+  #   container_name: demo-artifact-uprising-server
+  #   links:
+  #     - postgres
+  #   environment:
+  #     - NODE_ENV=production
+  #   image: demo-artifact-uprising-server:0.1.0
+  #   ports:
+  #     - "4000:4000"
+  # DEMO-ARTIFACT_UPRISING-CLIENT:
+  #   build: ./client
+  #   container_name: demo-artifact-uprising-client
+  #   depends_on:
+  #     - DEMO-ARTIFACT_UPRISING-SERVER
+  #   image: demo-artifact-uprising-client:0.1.0
+  #   ports:
+  #     - "3000:3000"
