@@ -22,7 +22,10 @@ USER root
 RUN npm i -g sequelize-cli
 RUN yarn
 
+RUN chmod +x startup.sh
+
 # Expose Container Port
 EXPOSE 4000
 
-RUN yarn start
+ENTRYPOINT ["./startup.sh"]
+# CMD ["yarn", "start"]

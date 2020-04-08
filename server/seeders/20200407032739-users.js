@@ -7,14 +7,16 @@ module.exports = {
       password: 'abc1234',
       firstName: 'Mark',
       middleName: undefined,
-      lastName: 'Washington'
+      lastName: 'Washington',
+      createDate: new Date()
     },
     {
       email: 'd.leugo@gmail.com',
       password: 'abc1234',
       firstName: 'Danny',
       middleName: undefined,
-      lastName: 'Luego'
+      lastName: 'Luego',
+      createDate: new Date()
     }], {});
   },
 
